@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diego Roman · Growth Marketer & Brand Strategist</title>
+  <meta name="description" content="12 años convirtiendo estrategia digital en ventas reales. Growth Marketer & Brand Strategist especializado en ecosistemas educativos y marcas de alto impacto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1E293B;
+      background: #FFFFFF;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════ */
+    :root {
+      --blue:        #4F8EFF;
+      --blue-mid:    #2563EB;
+      --blue-dark:   #1D4ED8;
+      --neon:        #22D3EE;
+      --purple:      #A855F7;
+      --green:       #10B981;
+      --dark-bg:     #050B18;
+      --gray:        #64748B;
+      --gray-light:  #94A3B8;
+      --bg-soft:     #F8FAFC;
+      --border:      #E2E8F0;
+      --white:       #FFFFFF;
+    }
+
+    /* ═══════════════════════════════════════
+       LAYOUT UTILITIES
+    ═══════════════════════════════════════ */
+    .container  { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 100px 0; }
+    .section-sm { padding: 72px 0; }
+
+    /* ═══════════════════════════════════════
+       SECTION HEADER
+    ═══════════════════════════════════════ */
+    .section-label {
+      display: block;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue-mid);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+      color: #0F172A; line-height: 1.1; margin-bottom: 16px;
+      letter-spacing: -0.03em;
+    }
+    .section-subtitle {
+      font-size: 16px; color: var(--gray);
+      max-width: 560px; line-height: 1.75;
+    }
+    .section-header { margin-bottom: 56px; }
+
+    /* dark overrides */
+    .section-dark .section-label    { color: var(--neon); }
+    .section-dark .section-title    { color: #FFFFFF; }
+    .section-dark .section-subtitle { color: var(--gray-light); }
+
+    /* ═══════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════ */
+    .reveal {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 0.75s cubic-bezier(.22,1,.36,1),
+                  transform 0.75s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible        { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1        { transition-delay: 0.10s; }
+    .reveal-delay-2        { transition-delay: 0.20s; }
+    .reveal-delay-3        { transition-delay: 0.30s; }
+    .reveal-delay-4        { transition-delay: 0.40s; }
+    .reveal-delay-5        { transition-delay: 0.50s; }
+
+    /* ═══════════════════════════════════════
+       GLITCH EFFECT
+    ═══════════════════════════════════════ */
+    .glitch { position: relative; display: inline-block; }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      font-family: inherit; font-size: inherit;
+      font-weight: inherit; line-height: inherit;
+      letter-spacing: inherit;
+    }
+    .glitch::before {
+      color: var(--neon);
+      animation: glitch-top 4s infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+    }
+    .glitch::after {
+      color: var(--purple);
+      animation: glitch-bot 4s infinite;
+      clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+    }
+    @keyframes glitch-top {
+      0%,88%,100% { transform: translate(0); opacity: 0; }
+      90%          { transform: translate(-5px,-2px); opacity: 0.85; }
+      93%          { transform: translate(5px,2px);  opacity: 0.85; }
+      96%          { transform: translate(-2px,0);   opacity: 0.85; }
+    }
+    @keyframes glitch-bot {
+      0%,85%,100% { transform: translate(0); opacity: 0; }
+      87%          { transform: translate(5px,2px);  opacity: 0.85; }
+      91%          { transform: translate(-5px,-2px); opacity: 0.85; }
+      94%          { transform: translate(2px,0);    opacity: 0.85; }
+    }
+
+    /* ═══════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200; padding: 22px 0;
+      transition: all 0.35s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(5,11,24,0.90);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 14px 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800; font-size: 21px;
+      color: #FFFFFF; text-decoration: none; letter-spacing: -0.04em;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500;
+      color: rgba(255,255,255,0.55); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #FFFFFF; }
+    .nav-cta {
+      background: var(--blue-mid) !important;
+      color: #FFFFFF !important;
+      padding: 8px 20px; border-radius: 8px;
+      font-weight: 700 !important; font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--blue) !important; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    /* ═══════════════════════════════════════
+       HERO  (dark + particles)
+    ═══════════════════════════════════════ */
+    #hero {
+      position: relative; min-height: 100vh;
+      background: var(--dark-bg);
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    #particles-canvas {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none; z-index: 0;
+    }
+    .hero-orb-1 {
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%);
+      top: -160px; left: -120px;
+      animation: orb-float 9s ease-in-out infinite alternate;
+    }
+    .hero-orb-2 {
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, rgba(168,85,247,0.18) 0%, transparent 70%);
+      bottom: -80px; right: -80px;
+      animation: orb-float 12s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes orb-float {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(30px,20px) scale(1.15); }
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 56px; align-items: center;
+      padding: 148px 0 100px;
+    }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 120px 0 80px; }
+    }
+
+    /* eyebrow badge */
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(79,142,255,0.1);
+      border: 1px solid rgba(79,142,255,0.25);
+      border-radius: 40px; padding: 7px 18px; margin-bottom: 32px;
+    }
+    .hero-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+      animation: dot-pulse 2s ease-in-out infinite;
+    }
+    @keyframes dot-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.6); }
+      50%      { box-shadow: 0 0 0 7px rgba(16,185,129,0); }
+    }
+    .hero-eyebrow-text { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.75); }
+
+    /* name */
+    .hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(68px, 10vw, 116px);
+      font-weight: 800; line-height: 0.92;
+      color: #FFFFFF; letter-spacing: -0.04em;
+      margin-bottom: 22px;
+    }
+
+    /* typing */
+    .hero-title {
+      display: flex; align-items: center;
+      font-size: clamp(17px, 2.2vw, 22px);
+      font-weight: 500; color: rgba(255,255,255,0.45);
+      margin-bottom: 28px; min-height: 34px;
+    }
+    .typing-word { color: var(--blue); font-weight: 700; }
+    .typing-cursor {
+      display: inline-block; width: 3px; height: 1.1em;
+      background: var(--blue); margin-left: 3px;
+      vertical-align: middle;
+      animation: cur-blink 1s step-end infinite;
+    }
+    @keyframes cur-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* tagline */
+    .hero-tagline {
+      font-size: 15px; color: rgba(255,255,255,0.42);
+      max-width: 500px; line-height: 1.8; margin-bottom: 44px;
+    }
+
+    /* CTAs */
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--blue-mid), var(--blue));
+      color: #FFFFFF; padding: 14px 28px; border-radius: 10px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      box-shadow: 0 4px 24px rgba(79,142,255,0.4);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(79,142,255,0.55); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: rgba(255,255,255,0.72);
+      padding: 14px 28px; border-radius: 10px;
+      font-weight: 600; font-size: 15px; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: all 0.25s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.38); color: #FFFFFF; }
+
+    /* metrics card */
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-radius: 22px; padding: 32px 28px; min-width: 270px;
+    }
+    .hero-card-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      margin-bottom: 24px;
+    }
+    .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    .metric-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 30px; font-weight: 800; line-height: 1;
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--blue) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 5px;
+    }
+    .metric-label { font-size: 11px; color: rgba(255,255,255,0.35); line-height: 1.45; }
+    .hero-location {
+      font-size: 12px; color: rgba(255,255,255,0.3);
+      padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* ═══════════════════════════════════════
+       SOBRE MÍ  (light)
+    ═══════════════════════════════════════ */
+    #sobre-mi { background: #F8FAFC; }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    @media (max-width: 768px) { .about-inner { grid-template-columns: 1fr; gap: 48px; } }
+    .about-text p { font-size: 16px; color: #475569; line-height: 1.85; margin-bottom: 20px; }
+    .about-text strong { color: #0F172A; font-weight: 700; }
+    .about-highlights { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+    .highlight-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: #FFFFFF; border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+    .highlight-item:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.09); transform: translateY(-3px); border-color: #BFDBFE; }
+    .highlight-icon { font-size: 26px; flex-shrink: 0; }
+    .highlight-content h4 { font-size: 14px; font-weight: 700; color: #0F172A; margin-bottom: 4px; }
+    .highlight-content p  { font-size: 13px; color: #64748B; line-height: 1.6; }
+    .photo-placeholder {
+      width: 100%; aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #DBEAFE, #E0F2FE);
+      border-radius: 20px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: #2563EB; font-size: 52px;
+      border: 2px dashed #BFDBFE; margin-bottom: 20px;
+    }
+    .photo-placeholder p { font-size: 13px; color: #2563EB; font-weight: 500; margin-top: 10px; }
+    .profile-photo {
+      width: 100%; aspect-ratio: 4/3;
+      border-radius: 20px; margin-bottom: 20px;
+      object-fit: cover; box-shadow: 0 20px 48px rgba(15,23,42,0.12);
+      border: 1px solid var(--border);
+    }
+
+    /* ═══════════════════════════════════════
+       PROYECTOS  (white)
+    ═══════════════════════════════════════ */
+    #proyectos { background: #FFFFFF; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 28px; }
+    .case-card {
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--border); background: #FFFFFF;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .case-card:hover { transform: translateY(-7px); box-shadow: 0 24px 56px rgba(0,0,0,0.1); }
+    .case-card-header        { padding: 30px; }
+    .case-card-header.blue   { background: linear-gradient(135deg,#EFF6FF,#DBEAFE); }
+    .case-card-header.sky    { background: linear-gradient(135deg,#F0F9FF,#E0F2FE); }
+    .case-card-header.purple { background: linear-gradient(135deg,#F5F3FF,#EDE9FE); }
+    .case-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+    .case-number { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #94A3B8; text-transform: uppercase; }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+    .badge-blue   { background: #DBEAFE; color: #2563EB; }
+    .badge-sky    { background: #E0F2FE; color: #0369A1; }
+    .badge-purple { background: #EDE9FE; color: #7C3AED; }
+    .case-title { font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; color: #0F172A; line-height: 1.3; margin-bottom: 10px; }
+    .case-description { font-size: 14px; color: #64748B; line-height: 1.65; }
+    .case-card-body  { padding: 26px; }
+    .case-section    { margin-bottom: 18px; padding: 14px 16px; border-radius: 10px; }
+    .case-section.blue   { background: #F8FAFF; border-left: 3px solid #2563EB; }
+    .case-section.sky    { background: #F0F9FF; border-left: 3px solid #0EA5E9; }
+    .case-section.purple { background: #FAF5FF; border-left: 3px solid #7C3AED; }
+    .case-section h5 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #94A3B8; margin-bottom: 6px; }
+    .case-section p  { font-size: 13px; color: #475569; line-height: 1.65; }
+    .case-results    { padding: 14px 16px; border-radius: 10px; }
+    .case-results.blue   { background: #EFF6FF; }
+    .case-results.sky    { background: #F0F9FF; }
+    .case-results.purple { background: #F5F3FF; }
+    .case-results h5 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #94A3B8; margin-bottom: 10px; }
+    .result-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #0F172A; font-weight: 600; margin-bottom: 7px; }
+    .result-dot            { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .result-dot.blue       { background: #2563EB; }
+    .result-dot.sky        { background: #0EA5E9; }
+    .result-dot.purple     { background: #7C3AED; }
+
+    /* ═══════════════════════════════════════
+       VIDEO  (dark)
+    ═══════════════════════════════════════ */
+    #video { background: #070D1A; }
+    .showreel-wrap {
+      position: relative; width: 100%; padding-top: 56.25%;
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.07), 0 28px 64px rgba(0,0,0,0.6);
+      background: #0A1628; margin-bottom: 44px;
+    }
+    .showreel-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    .showreel-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+      background: linear-gradient(135deg, #0a1628, #12203d); color: #FFFFFF;
+      cursor: pointer; transition: background 0.3s;
+    }
+    .showreel-placeholder:hover { background: linear-gradient(135deg, #0d1e3d, #1a2e52); }
+    .play-icon {
+      width: 88px; height: 88px;
+      background: rgba(79,142,255,0.15); border: 2px solid rgba(79,142,255,0.35);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 34px; transition: all 0.3s;
+    }
+    .showreel-placeholder:hover .play-icon { background: rgba(79,142,255,0.35); border-color: var(--blue); transform: scale(1.1); box-shadow: 0 0 40px rgba(79,142,255,0.4); }
+    .showreel-placeholder strong { font-size: 18px; font-weight: 700; }
+    .showreel-placeholder p { font-size: 13px; color: #64748B; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 22px; }
+    .video-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px; overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .video-card:hover { transform: translateY(-5px); border-color: rgba(79,142,255,0.3); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .video-thumb { position: relative; width: 100%; padding-top: 56.25%; background: #0a1628; overflow: hidden; }
+    .video-thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    .video-thumb-placeholder {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+      background: linear-gradient(135deg, #0f172a, #1a2744); color: #475569; font-size: 13px;
+    }
+    .video-thumb-placeholder span { font-size: 32px; }
+    .video-card-body { padding: 20px; }
+    .video-card-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--blue); background: rgba(79,142,255,0.1);
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 8px;
+    }
+    .video-card-title { font-size: 14px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px; line-height: 1.35; }
+    .video-card-desc  { font-size: 12px; color: #64748B; line-height: 1.6; }
+    .video-note {
+      margin-top: 36px; padding: 20px 24px;
+      background: rgba(79,142,255,0.07); border-left: 3px solid var(--blue);
+      border-radius: 0 10px 10px 0; font-size: 14px; color: #94A3B8;
+    }
+    .video-note strong { color: #FFFFFF; }
+
+    /* ═══════════════════════════════════════
+       HABILIDADES  (light)
+    ═══════════════════════════════════════ */
+    #habilidades { background: #F8FAFC; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(245px,1fr)); gap: 18px; margin-bottom: 60px; }
+    .skill-category {
+      background: #FFFFFF; border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+    .skill-category:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-3px); border-color: #BFDBFE; }
+    .skill-cat-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .skill-cat-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .skill-cat-icon.blue   { background: #DBEAFE; }
+    .skill-cat-icon.sky    { background: #E0F2FE; }
+    .skill-cat-icon.purple { background: #EDE9FE; }
+    .skill-cat-icon.green  { background: #D1FAE5; }
+    .skill-cat-icon.orange { background: #FEF3C7; }
+    .skill-cat-icon.pink   { background: #FCE7F3; }
+    .skill-cat-name { font-size: 14px; font-weight: 700; color: #0F172A; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-tag { background: #F1F5F9; color: #475569; border-radius: 6px; padding: 4px 10px; font-size: 12px; font-weight: 500; }
+    .soft-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .soft-skills { grid-template-columns: 1fr; } }
+    .soft-skill-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: #FFFFFF; border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .soft-skill-item:hover { border-color: #93C5FD; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .soft-check { width: 28px; height: 28px; border-radius: 50%; background: #DBEAFE; color: #2563EB; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+    .soft-skill-name { font-size: 13px; font-weight: 700; color: #0F172A; margin-bottom: 3px; }
+    .soft-skill-desc { font-size: 12px; color: #64748B; line-height: 1.6; }
+
+    /* ═══════════════════════════════════════
+       EXPERIENCIA  (dark)
+    ═══════════════════════════════════════ */
+    #experiencia { background: #070D1A; }
+    .timeline { position: relative; padding-left: 36px; }
+    .timeline::before {
+      content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--blue-mid), rgba(37,99,235,0.08));
+    }
+    .timeline-item { position: relative; margin-bottom: 48px; padding-left: 24px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -43px; top: 8px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--blue); border: 2px solid #070D1A;
+      box-shadow: 0 0 0 3px rgba(79,142,255,0.3);
+    }
+    .timeline-meta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; }
+    .timeline-company { font-size: 15px; font-weight: 700; color: #FFFFFF; }
+    .timeline-period { font-size: 11px; font-weight: 700; color: var(--blue); background: rgba(79,142,255,0.12); padding: 3px 10px; border-radius: 20px; }
+    .timeline-role { font-size: 13px; font-weight: 600; color: #64748B; margin-bottom: 12px; }
+    .timeline-achievements { list-style: none; padding: 0; }
+    .timeline-achievements li { font-size: 13px; color: #64748B; line-height: 1.7; margin-bottom: 6px; padding-left: 18px; position: relative; }
+    .timeline-achievements li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-size: 12px; }
+
+    /* ═══════════════════════════════════════
+       EDUCACIÓN  (white)
+    ═══════════════════════════════════════ */
+    #educacion { background: #FFFFFF; }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 18px; }
+    .edu-card { background: #F8FAFC; border: 1px solid var(--border); border-radius: 14px; padding: 24px; transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s; }
+    .edu-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-3px); border-color: #BFDBFE; }
+    .edu-year   { font-size: 11px; font-weight: 700; color: #2563EB; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .edu-degree { font-size: 15px; font-weight: 700; color: #0F172A; line-height: 1.3; margin-bottom: 6px; }
+    .edu-school { font-size: 12px; color: #64748B; line-height: 1.55; }
+
+    /* ═══════════════════════════════════════
+       CONTACTO  (dark)
+    ═══════════════════════════════════════ */
+    #contacto { background: #050B18; }
+    .cta-inner { text-align: center; }
+    #contacto .section-label    { color: var(--neon); }
+    #contacto .section-title    { color: #FFFFFF; font-size: clamp(28px,4vw,50px); }
+    #contacto .section-subtitle { color: #94A3B8; margin: 0 auto 48px; }
+    .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 18px; max-width: 720px; margin: 0 auto 40px; }
+    .contact-card {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px; padding: 24px 20px; text-decoration: none;
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .contact-card:hover { border-color: rgba(79,142,255,0.4); background: rgba(79,142,255,0.06); transform: translateY(-3px); }
+    .contact-card-icon  { font-size: 28px; }
+    .contact-card-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: #475569; }
+    .contact-card-value { font-size: 14px; font-weight: 700; color: #FFFFFF; }
+    .cta-availability { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: #64748B; font-weight: 500; }
+    .availability-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); animation: dot-pulse 2s ease-in-out infinite; }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    footer { background: #030711; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.04); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+    .footer-name { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.35); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+    @media (max-width: 600px) { .footer-inner { flex-direction: column; gap: 8px; text-align: center; } }
+
+    /* ═══════════════════════════════════════
+       SCROLL TO TOP
+    ═══════════════════════════════════════ */
+    #scroll-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 44px; height: 44px; background: var(--blue-mid); color: #FFFFFF;
+      border: none; border-radius: 50%; cursor: pointer; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+      opacity: 0; transition: opacity 0.3s, transform 0.3s;
+      transform: translateY(12px); z-index: 99;
+    }
+    #scroll-top.visible { opacity: 1; transform: translateY(0); }
+    #scroll-top:hover   { transform: translateY(-3px); }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">Diego<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#contacto" class="nav-cta">Contáctame</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="container">
+      <div class="hero-inner">
+
+        <div>
+          <div class="hero-eyebrow reveal">
+            <div class="hero-dot"></div>
+            <span class="hero-eyebrow-text">Disponible para nuevas oportunidades</span>
+          </div>
+
+          <h1 class="hero-name">
+            <span class="glitch" data-text="Diego">Diego</span><br/>
+            <span class="glitch" data-text="Roman">Roman</span>
+          </h1>
+
+          <p class="hero-title">
+            <span class="typing-word" id="typing-el"></span><span class="typing-cursor"></span>
+          </p>
+
+          <p class="hero-tagline reveal reveal-delay-3">
+            12+ años de trayectoria: de coordinador de prensa en los Juegos Panamericanos 2011 a escalar marcas educativas hasta +35,000 alumnos, +3M seguidores y presencia en toda México.
+          </p>
+
+          <div class="hero-ctas reveal reveal-delay-4">
+            <a href="#proyectos" class="btn-primary">
+              Ver mis proyectos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contacto" class="btn-secondary">Contáctame</a>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="hero-card">
+            <p class="hero-card-title">Impacto en números</p>
+            <div class="metric-grid">
+              <div>
+                <div class="metric-number" data-target="35" data-prefix="+" data-suffix="K">+35K</div>
+                <div class="metric-label">Alumnos en ecosistema educativo</div>
+              </div>
+              <div>
+                <div class="metric-number" data-target="3" data-prefix="+" data-suffix="M">+3M</div>
+                <div class="metric-label">Seguidores en marcas que gestiono</div>
+              </div>
+              <div>
+                <div class="metric-number" data-target="2" data-prefix="$" data-suffix="M+">$2M+</div>
+                <div class="metric-label">MXN en presupuesto publicitario</div>
+              </div>
+              <div>
+                <div class="metric-number" data-target="10" data-prefix="+" data-suffix="">+10</div>
+                <div class="metric-label">Centros educativos en México</div>
+              </div>
+            </div>
+            <div class="hero-location">📍 Guadalajara, Jalisco · México</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SOBRE MÍ ─── -->
+  <section id="sobre-mi" class="section">
+    <div class="container">
+      <div class="about-inner">
+        <div class="reveal">
+          <div class="section-header">
+            <p class="section-label">Quién soy</p>
+            <h2 class="section-title">Estrategia digital<br/>que genera ventas</h2>
+          </div>
+          <div class="about-text">
+            <p>Soy comunicólogo de formación y <strong>growth marketer por vocación</strong>. Mi trayectoria comenzó en el área comercial de empresas de lectura y desarrollo cognitivo, donde escalé desde <strong>Asesor hasta Director de Filial</strong>, gestionando equipos y estrategias de venta en campo.</p>
+            <p>Esa base comercial me dio algo que muy pocos marketers tienen: <strong>entender el proceso completo desde la atracción hasta el cierre</strong>. Luego me especialicé en marketing digital, creando contenido y manejando la imagen de las marcas Evolucione, Glish y Milena Sandoval — logrando un aumento significativo en visibilidad, leads y engagement.</p>
+            <p>He gestionado más de $2M MXN en presupuesto publicitario, escalado marcas a millones de seguidores, y liderado equipos multidisciplinarios. Mi objetivo: seguir aportando al crecimiento y diferenciación de marcas a través de <strong>estrategias innovadoras y medibles</strong>.</p>
+          </div>
+        </div>
+        <div>
+          <img src="./diego-photo.jpg" alt="Diego Roman - Growth Marketer & Brand Strategist" class="profile-photo reveal">
+          <div class="about-highlights">
+            <div class="highlight-item reveal reveal-delay-1">
+              <div class="highlight-icon">📊</div>
+              <div class="highlight-content">
+                <h4>Orientado a datos</h4>
+                <p>Decisiones basadas en métricas, no intuición. CPL, ROAS y CAC son mi lenguaje diario.</p>
+              </div>
+            </div>
+            <div class="highlight-item reveal reveal-delay-2">
+              <div class="highlight-icon">🔗</div>
+              <div class="highlight-content">
+                <h4>Bridge Marketing–Ventas</h4>
+                <p>Construyo el puente entre captación digital y cierre comercial, co-creando con equipos de ventas.</p>
+              </div>
+            </div>
+            <div class="highlight-item reveal reveal-delay-3">
+              <div class="highlight-icon">🚀</div>
+              <div class="highlight-content">
+                <h4>Escalador de marcas</h4>
+                <p>Especializado en llevar marcas educativas de cero a posición de liderazgo nacional.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROYECTOS ─── -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Proyectos destacados</p>
+        <h2 class="section-title">Case Studies</h2>
+        <p class="section-subtitle">Tres proyectos que demuestran cómo conecto estrategia digital con resultados de negocio reales.</p>
+      </div>
+      <div class="projects-grid">
+
+        <div class="case-card reveal">
+          <div class="case-card-header blue">
+            <div class="case-meta"><span class="case-number">Case Study #01</span><span class="badge badge-blue">EdTech · Metodología propia</span></div>
+            <h3 class="case-title">Evolucione – Líder en métodos de estudio en México</h3>
+            <p class="case-description">Posicionamiento de marca educativa en un mercado saturado, diferenciada por metodología propia de desarrollo cognitivo.</p>
+          </div>
+          <div class="case-card-body">
+            <div class="case-section blue"><h5>El reto</h5><p>Posicionar una marca educativa nueva en un mercado saturado de cursos online, con la necesidad de diferenciarse por metodología propia y generar confianza en un producto intangible de alto valor.</p></div>
+            <div class="case-section blue"><h5>La estrategia</h5><p>Contenido de autoridad + automatización de nurturing + campañas segmentadas. Producción audiovisual propia. Funnels end-to-end desde captación hasta handoff estructurado al equipo de ventas.</p></div>
+            <div class="case-results blue"><h5>Resultados</h5>
+              <div class="result-item"><div class="result-dot blue"></div>+15,000 alumnos con metodología propia</div>
+              <div class="result-item"><div class="result-dot blue"></div>Mayor presencia digital en su categoría en MX</div>
+              <div class="result-item"><div class="result-dot blue"></div>Ciclo de venta acortado significativamente</div>
+              <div class="result-item"><div class="result-dot blue"></div>Tasa de conversión mejorada sustancialmente</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card reveal reveal-delay-1">
+          <div class="case-card-header sky">
+            <div class="case-meta"><span class="case-number">Case Study #02</span><span class="badge badge-sky">Educación · Expansión nacional</span></div>
+            <h3 class="case-title">Glish English – De 1 centro a red de +10 en 7 años</h3>
+            <p class="case-description">Estrategia de expansión física y digital para escalar un centro educativo local a presencia nacional y regional.</p>
+          </div>
+          <div class="case-card-body">
+            <div class="case-section sky"><h5>El reto</h5><p>Escalar un centro educativo de inglés local a una red nacional, compitiendo contra franquicias establecidas y plataformas de enseñanza en línea con mayor presupuesto.</p></div>
+            <div class="case-section sky"><h5>La estrategia</h5><p>Meta Ads segmentado por plaza, contenido orgánico localizado, automatización de WhatsApp para calificación de leads, y soporte directo al equipo comercial de cada centro.</p></div>
+            <div class="case-results sky"><h5>Resultados</h5>
+              <div class="result-item"><div class="result-dot sky"></div>+10 centros educativos abiertos en México</div>
+              <div class="result-item"><div class="result-dot sky"></div>+20,000 usuarios activos en la plataforma</div>
+              <div class="result-item"><div class="result-dot sky"></div>Expansión digital a Colombia</div>
+              <div class="result-item"><div class="result-dot sky"></div>Todo en menos de 7 años</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card reveal reveal-delay-2">
+          <div class="case-card-header purple">
+            <div class="case-meta"><span class="case-number">Case Study #03</span><span class="badge badge-purple">Marca personal · Creator economy</span></div>
+            <h3 class="case-title">Milena Sandoval – 2.4M seguidores, referente hispano</h3>
+            <p class="case-description">Construcción de marca personal desde cero hasta liderazgo de audiencia en el mercado hispano de habla española.</p>
+          </div>
+          <div class="case-card-body">
+            <div class="case-section purple"><h5>El reto</h5><p>Construir una marca personal desde cero con alto engagement y monetización sostenida, en un mercado de creadores de contenido altamente competitivo en habla hispana.</p></div>
+            <div class="case-section purple"><h5>La estrategia</h5><p>Producción propia de contenido + colaboraciones estratégicas + campañas de pago con foco en engagement. Gestión integral: investigación de tendencias, guión, producción, edición y análisis de métricas.</p></div>
+            <div class="case-results purple"><h5>Resultados</h5>
+              <div class="result-item"><div class="result-dot purple"></div>+2.4M de seguidores construidos</div>
+              <div class="result-item"><div class="result-dot purple"></div>Referente en el espacio hispano</div>
+              <div class="result-item"><div class="result-dot purple"></div>Alto engagement sostenido</div>
+              <div class="result-item"><div class="result-dot purple"></div>Monetización diversificada y escalable</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── VIDEO / SHOWREEL ─── -->
+  <section id="video" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Portafolio audiovisual</p>
+        <h2 class="section-title">Video & Contenido</h2>
+        <p class="section-subtitle">Más de una década produciendo contenido que conecta. Desde campañas virales hasta estrategias de video marketing que generaron resultados reales.</p>
+      </div>
+      <div class="showreel-wrap reveal">
+        <!--
+          INSTRUCCIONES: Cuando tengas tu showreel listo en YouTube,
+          reemplaza el bloque .showreel-placeholder por:
+          <iframe
+            src="https://www.youtube.com/embed/TU_VIDEO_ID?rel=0&modestbranding=1"
+            title="Showreel Diego Román"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        -->
+        <div class="showreel-placeholder">
+          <div class="play-icon">▶</div>
+          <strong>Showreel — Próximamente</strong>
+          <p>Tu video principal irá aquí (YouTube embed)</p>
+        </div>
+      </div>
+      <div class="video-grid">
+        <div class="video-card reveal">
+          <div class="video-thumb">
+            <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" allowfullscreen></iframe> -->
+            <div class="video-thumb-placeholder"><span>🎬</span><p>Video de campaña</p></div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-card-tag">Campaña Digital</span>
+            <p class="video-card-title">Evolucione Leyendo — Estrategia de contenido</p>
+            <p class="video-card-desc">Campaña de video marketing que incrementó conversiones orgánicas un 40% en 6 meses.</p>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-1">
+          <div class="video-thumb">
+            <div class="video-thumb-placeholder"><span>📱</span><p>Reel / Short</p></div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-card-tag">Reel Viral</span>
+            <p class="video-card-title">Glish English — Concepto de video viral</p>
+            <p class="video-card-desc">Serie de reels educativos con estrategia de hooks y storytelling para máximo alcance orgánico.</p>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-2">
+          <div class="video-thumb">
+            <div class="video-thumb-placeholder"><span>✂️</span><p>Edición / Postproducción</p></div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-card-tag">Edición</span>
+            <p class="video-card-title">Milena Sandoval — Contenido de marca</p>
+            <p class="video-card-desc">Producción y edición de contenido audiovisual alineado con identidad de marca y objetivos comerciales.</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-note reveal">
+        <strong>¿Quieres ver más trabajos?</strong> — Escríbeme y con gusto te comparto el portafolio completo con métricas de impacto.
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HABILIDADES ─── -->
+  <section id="habilidades" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Stack & competencias</p>
+        <h2 class="section-title">Habilidades</h2>
+        <p class="section-subtitle">Herramientas y capacidades que utilizo para construir estrategias de alto impacto.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category reveal"><div class="skill-cat-header"><div class="skill-cat-icon blue">📣</div><span class="skill-cat-name">Paid Media</span></div><div class="skill-tags"><span class="skill-tag">Meta Ads</span><span class="skill-tag">TikTok Ads</span><span class="skill-tag">Google Ads</span><span class="skill-tag">Meta Business Partner</span></div></div>
+        <div class="skill-category reveal reveal-delay-1"><div class="skill-cat-header"><div class="skill-cat-icon sky">⚡</div><span class="skill-cat-name">Automatización</span></div><div class="skill-tags"><span class="skill-tag">ManyChat</span><span class="skill-tag">WhatsApp Automation</span><span class="skill-tag">Email Marketing</span><span class="skill-tag">CRM</span></div></div>
+        <div class="skill-category reveal reveal-delay-2"><div class="skill-cat-header"><div class="skill-cat-icon purple">🎬</div><span class="skill-cat-name">Adobe Creative Suite</span></div><div class="skill-tags"><span class="skill-tag">Premiere Pro</span><span class="skill-tag">After Effects</span><span class="skill-tag">Photoshop</span><span class="skill-tag">Illustrator</span></div></div>
+        <div class="skill-category reveal reveal-delay-1"><div class="skill-cat-header"><div class="skill-cat-icon green">🤖</div><span class="skill-cat-name">Inteligencia Artificial</span></div><div class="skill-tags"><span class="skill-tag">ChatGPT</span><span class="skill-tag">Claude AI</span><span class="skill-tag">Generación de contenido IA</span></div></div>
+        <div class="skill-category reveal reveal-delay-2"><div class="skill-cat-header"><div class="skill-cat-icon orange">📱</div><span class="skill-cat-name">Social Media</span></div><div class="skill-tags"><span class="skill-tag">Instagram</span><span class="skill-tag">TikTok</span><span class="skill-tag">Facebook</span><span class="skill-tag">YouTube</span><span class="skill-tag">LinkedIn</span></div></div>
+        <div class="skill-category reveal reveal-delay-3"><div class="skill-cat-header"><div class="skill-cat-icon pink">📐</div><span class="skill-cat-name">Estrategia</span></div><div class="skill-tags"><span class="skill-tag">Copywriting</span><span class="skill-tag">Brand Strategy</span><span class="skill-tag">Funnel Design</span><span class="skill-tag">Growth Marketing</span><span class="skill-tag">RRPP</span></div></div>
+        <div class="skill-category reveal reveal-delay-4"><div class="skill-cat-header"><div class="skill-cat-icon sky">🎙️</div><span class="skill-cat-name">Producción de Audio</span></div><div class="skill-tags"><span class="skill-tag">Adobe Audition</span><span class="skill-tag">Cool Edit Pro</span><span class="skill-tag">Micrófonos profesionales</span><span class="skill-tag">Consolas de audio</span></div></div>
+        <div class="skill-category reveal reveal-delay-4"><div class="skill-cat-header"><div class="skill-cat-icon green">🎥</div><span class="skill-cat-name">Equipo de Producción</span></div><div class="skill-tags"><span class="skill-tag">Canon XL2</span><span class="skill-tag">Sony HD</span><span class="skill-tag">BetaCam</span><span class="skill-tag">Switcher &amp; Tituladora</span></div></div>
+      </div>
+      <div class="section-header reveal" style="margin-bottom:32px;">
+        <p class="section-label">Competencias clave</p>
+        <h3 class="section-title" style="font-size:clamp(22px,3vw,30px);">Lo que me hace diferente</h3>
+      </div>
+      <div class="soft-skills">
+        <div class="soft-skill-item reveal"><div class="soft-check">✓</div><div><div class="soft-skill-name">Bridge Marketing–Ventas</div><div class="soft-skill-desc">Diseño estrategias que conectan captación digital con cierre comercial, co-creando con equipos de ventas.</div></div></div>
+        <div class="soft-skill-item reveal reveal-delay-1"><div class="soft-check">✓</div><div><div class="soft-skill-name">Copywriting & Persuasión</div><div class="soft-skill-desc">Mensajes de alto impacto calibrados para cada etapa del funnel y cada audiencia.</div></div></div>
+        <div class="soft-skill-item reveal reveal-delay-2"><div class="soft-check">✓</div><div><div class="soft-skill-name">Performance Marketing</div><div class="soft-skill-desc">Planificación y optimización de campañas con CPL y ROAS superiores al promedio del mercado.</div></div></div>
+        <div class="soft-skill-item reveal reveal-delay-3"><div class="soft-check">✓</div><div><div class="soft-skill-name">Liderazgo de Equipos</div><div class="soft-skill-desc">Experiencia dirigiendo equipos comerciales y creativos, fomentando un ambiente colaborativo.</div></div></div>
+        <div class="soft-skill-item reveal reveal-delay-4"><div class="soft-check">✓</div><div><div class="soft-skill-name">Comunicación Efectiva</div><div class="soft-skill-desc">Capacidad para transmitir ideas de manera clara y persuasiva, tanto escrita como verbal.</div></div></div>
+        <div class="soft-skill-item reveal"><div class="soft-check">✓</div><div><div class="soft-skill-name">Creatividad Estratégica</div><div class="soft-skill-desc">Ideas innovadoras combinando pensamiento lateral con enfoque en datos y resultados medibles.</div></div></div>
+        <div class="soft-skill-item reveal reveal-delay-1"><div class="soft-check">✓</div><div><div class="soft-skill-name">Gestión Bajo Presión</div><div class="soft-skill-desc">Manejo eficiente del estrés en campañas urgentes y lanzamientos con plazos ajustados.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCIA ─── -->
+  <section id="experiencia" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Trayectoria</p>
+        <h2 class="section-title">Experiencia</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-meta"><span class="timeline-company">Milena Sandoval (Marca Personal)</span><span class="timeline-period">2020 – Presente</span></div>
+          <p class="timeline-role">Marketing Manager &amp; Brand Strategist</p>
+          <ul class="timeline-achievements">
+            <li>Construcción de ecosistema de +2.4M seguidores desde cero en múltiples plataformas</li>
+            <li>Gestión integral de redes sociales: creación de contenido, interacción con comunidad y monitoreo</li>
+            <li>Dirección de producción audiovisual: guión, filmación, edición en Adobe Premiere y distribución multiplataforma</li>
+            <li>Estrategia de monetización diversificada y crecimiento sostenido de audiencia</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-meta"><span class="timeline-company">Glish English</span><span class="timeline-period">2017 – 2024</span></div>
+          <p class="timeline-role">Director de Marketing &amp; Co-fundador</p>
+          <ul class="timeline-achievements">
+            <li>Escalé la operación de 1 a +10 centros educativos en México en 7 años</li>
+            <li>Gestión y optimización de campañas con +$2M MXN de presupuesto en Google, Facebook e Instagram Ads</li>
+            <li>Automatización de WhatsApp y ManyChat para calificación y nurturing de leads</li>
+            <li>Expansión digital a Colombia con estrategia multicanal localizada por plaza</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-meta"><span class="timeline-company">Evolucione Leyendo</span><span class="timeline-period">Sep 2017 – Presente</span></div>
+          <p class="timeline-role">Marketing Manager</p>
+          <ul class="timeline-achievements">
+            <li>Gestión de redes sociales en Facebook, Instagram, LinkedIn y YouTube con estrategia editorial</li>
+            <li>Planificación y optimización de campañas PPC (Google Ads, Facebook Ads, Instagram Ads)</li>
+            <li>Creación de contenido de video y distribución en múltiples plataformas</li>
+            <li>+15,000 alumnos con metodología propia y mayor presencia digital en su categoría en México</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-3">
+          <div class="timeline-meta"><span class="timeline-company">Fundación México Lee</span><span class="timeline-period">2015 – 2016</span></div>
+          <p class="timeline-role">Gerente de Relaciones Públicas</p>
+          <ul class="timeline-achievements">
+            <li>Gestión de alianzas comerciales y estrategia de mercadotecnia institucional</li>
+            <li>Coordinación de publicidad y manejo de personal en el área de comunicación</li>
+            <li>Posicionamiento de la fundación en medios y comunidades educativas</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-4">
+          <div class="timeline-meta"><span class="timeline-company">Aseguradoras</span><span class="timeline-period">2014 – 2016</span></div>
+          <p class="timeline-role">Asesor Financiero Comercial</p>
+          <ul class="timeline-achievements">
+            <li>Asesoría comercial y financiera a clientes, con foco en prospectación y cierre</li>
+            <li>Dominio de telemarketing, publicidad y relaciones públicas aplicadas a ventas</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-3">
+          <div class="timeline-meta"><span class="timeline-company">Mental Tech</span><span class="timeline-period">2012 – 2014</span></div>
+          <p class="timeline-role">Gerente de Relaciones Públicas</p>
+          <ul class="timeline-achievements">
+            <li>Asesoramiento comercial, manejo de personal y gestión de campañas publicitarias</li>
+            <li>Telemarketing y relaciones públicas para posicionamiento en sector educativo</li>
+            <li>Primer rol de liderazgo formal: gestión de equipo comercial y supervisión de resultados</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-meta"><span class="timeline-company">Juegos Panamericanos Guadalajara 2011</span><span class="timeline-period">2011</span></div>
+          <p class="timeline-role">Coordinador de Voluntarios y Prensa</p>
+          <ul class="timeline-achievements">
+            <li>Coordinación del área de prensa en uno de los eventos deportivos más importantes de LATAM</li>
+            <li>Registro y acreditación de prensa internacional; fotografía y camarografía del evento</li>
+            <li>Gestión de voluntarios y logística operativa en condiciones de alta exigencia y visibilidad</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EDUCACIÓN ─── -->
+  <section id="educacion" class="section-sm">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Formación académica</p>
+        <h2 class="section-title">Educación</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card reveal"><p class="edu-year">2009 – 2011</p><p class="edu-degree">Lic. Ciencias y Técnicas en Comunicación</p><p class="edu-school">Universidad Cuauhtémoc · Especialidad en Comunicación Organizacional</p></div>
+        <div class="edu-card reveal reveal-delay-1"><p class="edu-year">2011</p><p class="edu-degree">Diplomado en Diseño y Animación 2D / 3D</p><p class="edu-school">CUAAD · Centro Universitario de Arte, Arquitectura y Diseño</p></div>
+        <div class="edu-card reveal reveal-delay-2"><p class="edu-year">Certificación</p><p class="edu-degree">Meta Business Partner</p><p class="edu-school">Meta · Campañas de alto desempeño en paid social</p></div>
+        <div class="edu-card reveal reveal-delay-3"><p class="edu-year">Formación continua</p><p class="edu-degree">Diplomados en Marketing Digital &amp; Producción Audiovisual</p><p class="edu-school">Growth hacking, automatización, performance marketing y producción de medios</p></div>
+        <div class="edu-card reveal reveal-delay-4"><p class="edu-year">Idiomas</p><p class="edu-degree">Español nativo · Inglés intermedio</p><p class="edu-school">Comunicación escrita y verbal en entornos profesionales</p></div>
+        <div class="edu-card reveal reveal-delay-4"><p class="edu-year">IA en uso activo</p><p class="edu-degree">Herramientas de Inteligencia Artificial</p><p class="edu-school">ChatGPT, Claude AI · Contenido, automatización y estrategia de marketing</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACTO ─── -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="reveal">
+          <p class="section-label">¿Hablamos?</p>
+          <h2 class="section-title">¿Tu equipo necesita<br/>un growth marketer?</h2>
+          <p class="section-subtitle">Estoy disponible para nuevas oportunidades. Si buscas a alguien que conecte marketing con resultados de negocio reales, escríbeme.</p>
+        </div>
+        <div class="contact-cards reveal">
+          <a href="mailto:drm050789@gmail.com" class="contact-card">
+            <div class="contact-card-icon">✉️</div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">drm050789@gmail.com</div>
+          </a>
+          <a href="tel:3324276809" class="contact-card">
+            <div class="contact-card-icon">📱</div>
+            <div class="contact-card-label">Teléfono / WhatsApp</div>
+            <div class="contact-card-value">33 2427 6809</div>
+          </a>
+          <div class="contact-card" style="cursor:default;">
+            <div class="contact-card-icon">📍</div>
+            <div class="contact-card-label">Ubicación</div>
+            <div class="contact-card-value">Guadalajara, Jalisco</div>
+          </div>
+        </div>
+        <div class="cta-availability reveal">
+          <div class="availability-dot"></div>
+          Disponible para entrevistas y proyectos
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Diego Roman · Portfolio 2026</span>
+        <span class="footer-copy">Growth Marketer &amp; Brand Strategist · Guadalajara, MX</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── SCROLL TO TOP ─── -->
+  <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+  /* ── 1. PARTICLES CANVAS ── */
+  (function () {
+    const canvas = document.getElementById('particles-canvas');
+    const ctx    = canvas.getContext('2d');
+    const N = 70, DIST = 115;
+    let W, H, P = [];
+
+    function resize() {
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < N; i++) {
+      P.push({
+        x:  Math.random() * window.innerWidth,
+        y:  Math.random() * window.innerHeight,
+        vx: (Math.random() - 0.5) * 0.32,
+        vy: (Math.random() - 0.5) * 0.32,
+        r:  Math.random() * 1.6 + 0.7,
+      });
+    }
+
+    (function loop() {
+      ctx.clearRect(0, 0, W, H);
+      for (const p of P) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(79,142,255,0.5)';
+        ctx.fill();
+      }
+      for (let i = 0; i < P.length; i++) {
+        for (let j = i + 1; j < P.length; j++) {
+          const dx = P[i].x - P[j].x, dy = P[i].y - P[j].y;
+          const d  = Math.sqrt(dx*dx + dy*dy);
+          if (d < DIST) {
+            ctx.beginPath();
+            ctx.moveTo(P[i].x, P[i].y);
+            ctx.lineTo(P[j].x, P[j].y);
+            ctx.strokeStyle = `rgba(79,142,255,${0.16 * (1 - d/DIST)})`;
+            ctx.lineWidth   = 0.7;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(loop);
+    })();
+  })();
+
+  /* ── 2. TYPING EFFECT ── */
+  (function () {
+    const el    = document.getElementById('typing-el');
+    const words = ['Growth Marketer', 'Brand Strategist', 'Comunicólogo', 'Director de Marketing'];
+    let wi = 0, ci = 0, del = false;
+
+    function tick() {
+      const w = words[wi];
+      if (!del) {
+        el.textContent = w.slice(0, ++ci);
+        if (ci === w.length) { del = true; setTimeout(tick, 2300); return; }
+      } else {
+        el.textContent = w.slice(0, --ci);
+        if (ci === 0) { del = false; wi = (wi + 1) % words.length; }
+      }
+      setTimeout(tick, del ? 36 : 80);
+    }
+    setTimeout(tick, 1000);
+  })();
+
+  /* ── 3. ANIMATED COUNTERS ── */
+  (function () {
+    function run(el) {
+      const target = +el.dataset.target;
+      const pre    = el.dataset.prefix || '';
+      const suf    = el.dataset.suffix || '';
+      const T      = 1800;
+      const t0     = performance.now();
+      function ease(x) { return 1 - Math.pow(1 - x, 3); }
+      (function step(now) {
+        const p = Math.min((now - t0) / T, 1);
+        el.textContent = pre + Math.round(ease(p) * target) + suf;
+        if (p < 1) requestAnimationFrame(step);
+      })(t0);
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.done) {
+          e.target.dataset.done = '1';
+          run(e.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.metric-number[data-target]').forEach(el => obs.observe(el));
+  })();
+
+  /* ── 4. SCROLL REVEAL ── */
+  const revObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+  /* ── 5. NAVBAR + SCROLL TOP ── */
+  const nb  = document.getElementById('navbar');
+  const stb = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nb.classList.toggle('scrolled', y > 60);
+    stb.classList.toggle('visible', y > 300);
+    let cur = '';
+    document.querySelectorAll('section[id]').forEach(s => {
+      if (y >= s.offsetTop - 130) cur = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur ? '#FFFFFF' : '';
+    });
+  });
+  </script>
+
+</body>
+</html>
