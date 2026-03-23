@@ -1073,6 +1073,7 @@
   /* ── 1. PARTICLES CANVAS ── */
   (function () {
     const canvas = document.getElementById('particles-canvas');
+    if (!canvas) return;
     const ctx    = canvas.getContext('2d');
     const N = 70, DIST = 115;
     let W, H, P = [];
