@@ -642,7 +642,7 @@
   <nav id="navbar">
     <div class="container">
       <div class="nav-inner">
-        <a href="#hero" class="nav-logo">Diego<span>.</span></a>
+        <a href="#scrolly-hero" class="nav-logo">Diego<span>.</span></a>
         <ul class="nav-links">
           <li><a href="#sobre-mi">Sobre mí</a></li>
           <li><a href="#proyectos">Proyectos</a></li>
@@ -672,91 +672,57 @@
     </div>
   </section>
 
-  <!-- ─── ORIGINAL HERO ─── -->
-  <section id="hero">
-    <canvas id="particles-canvas"></canvas>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="container">
-      <div class="hero-inner">
-
-        <div>
-          <div class="hero-eyebrow reveal">
-            <div class="hero-dot"></div>
-            <span class="hero-eyebrow-text">Disponible para nuevas oportunidades</span>
-          </div>
-
-          <h1 class="hero-name">
-            <span class="glitch" data-text="Diego">Diego</span><br/>
-            <span class="glitch" data-text="Roman">Roman</span>
-          </h1>
-
-          <p class="hero-title">
-            <span class="typing-word" id="typing-el"></span><span class="typing-cursor"></span>
-          </p>
-
-          <p class="hero-tagline reveal reveal-delay-3">
-            12+ años de trayectoria: de coordinador de prensa en los Juegos Panamericanos 2011 a escalar marcas educativas hasta +35,000 alumnos, +3M seguidores y presencia en todo México.
-          </p>
-
-          <div class="hero-ctas reveal reveal-delay-4">
-            <a href="#proyectos" class="btn-primary">
-              Ver mis proyectos
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#contacto" class="btn-secondary">Contáctame</a>
-          </div>
-        </div>
-
-                <div class="reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:20px;">
-          <div class="photo-frame-wrapper">
-            <img src="https://raw.githubusercontent.com/drm050789-netizen/diego-portfolio/main/diego-photo.jpg" alt="Diego Roman - Growth Marketer & Brand Strategist">
-          </div>
-          <div class="hero-card">
-            <p class="hero-card-title">Impacto en números</p>
-            <div class="metric-grid">
-              <div>
-                <div class="metric-number" data-target="35" data-prefix="+" data-suffix="K">+35K</div>
-                <div class="metric-label">Alumnos en ecosistema educativo</div>
-              </div>
-              <div>
-                <div class="metric-number" data-target="3" data-prefix="+" data-suffix="M">+3M</div>
-                <div class="metric-label">Seguidores en marcas que gestiono</div>
-              </div>
-              <div>
-                <div class="metric-number" data-target="2" data-prefix="$" data-suffix="M+">$2M+</div>
-                <div class="metric-label">MXN en presupuesto publicitario</div>
-              </div>
-              <div>
-                <div class="metric-number" data-target="10" data-prefix="+" data-suffix="">+10</div>
-                <div class="metric-label">Centros educativos en México</div>
-              </div>
-            </div>
-            <div class="hero-location">📍 Guadalajara, Jalisco · México</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- ─── SOBRE MÍ ─── -->
   <section id="sobre-mi" class="section">
     <div class="container">
       <div class="about-inner">
         <div class="reveal">
-          <div class="section-header">
+          <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:32px;">
+            <div class="photo-frame-wrapper">
+              <img src="https://raw.githubusercontent.com/drm050789-netizen/diego-portfolio/main/diego-photo.jpg" alt="Diego Roman - Growth Marketer & Brand Strategist">
+            </div>
+            <div class="hero-card" style="background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.1);color:#fff;">
+              <p class="hero-card-title">Impacto en números</p>
+              <div class="metric-grid">
+                <div>
+                  <div class="metric-number" data-target="35" data-prefix="+" data-suffix="K">+35K</div>
+                  <div class="metric-label">Alumnos en ecosistema educativo</div>
+                </div>
+                <div>
+                  <div class="metric-number" data-target="3" data-prefix="+" data-suffix="M">+3M</div>
+                  <div class="metric-label">Seguidores en marcas que gestiono</div>
+                </div>
+                <div>
+                  <div class="metric-number" data-target="2" data-prefix="$" data-suffix="M+">$2M+</div>
+                  <div class="metric-label">MXN en presupuesto publicitario</div>
+                </div>
+                <div>
+                  <div class="metric-number" data-target="10" data-prefix="+" data-suffix="">+10</div>
+                  <div class="metric-label">Centros educativos en México</div>
+                </div>
+              </div>
+              <div class="hero-location">📍 Guadalajara, Jalisco · México</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;">
+            <a href="#proyectos" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;">
+              Ver mis proyectos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contacto" class="btn-secondary" style="border-color:#1D4ED8;color:#1D4ED8;">Contáctame</a>
+          </div>
+        </div>
+        <div>
+          <div class="section-header reveal" style="margin-bottom:32px;">
             <p class="section-label">Quién soy</p>
             <h2 class="section-title">Estrategia digital<br/>que genera ventas</h2>
           </div>
-          <div class="about-text">
+          <div class="about-text reveal reveal-delay-1">
             <p>Soy comunicólogo de formación y <strong>growth marketer por vocación</strong>. Mi trayectoria comenzó en el área comercial de empresas de lectura y desarrollo cognitivo, donde escalé desde <strong>Asesor hasta Director de Filial</strong>, gestionando equipos y estrategias de venta en campo.</p>
             <p>Esa base comercial me dio algo que muy pocos marketers tienen: <strong>entender el proceso completo desde la atracción hasta el cierre</strong>. Luego me especialicé en marketing digital, creando contenido y manejando la imagen de las marcas Evolucione, Glish y Milena Sandoval — logrando un aumento significativo en visibilidad, leads y engagement.</p>
             <p>He gestionado más de $2M MXN en presupuesto publicitario, escalado marcas a millones de seguidores, y liderado equipos multidisciplinarios. Mi objetivo: seguir aportando al crecimiento y diferenciación de marcas a través de <strong>estrategias innovadoras y medibles</strong>.</p>
           </div>
-        </div>
-        <div>
-          <div class="about-highlights">
+          <div class="about-highlights"><div class="about-highlights">
             <div class="highlight-item reveal reveal-delay-1">
               <div class="highlight-icon">📊</div>
               <div class="highlight-content">
