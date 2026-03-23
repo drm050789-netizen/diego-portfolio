@@ -1253,14 +1253,15 @@ h
     if (!scrollyHero || !canvas) return;
     
     const ctx = canvas.getContext('2d');
-    const frameCount = 89;
+    const frameCount = 192; // Actual amount of frames provided
     const images = [];
     let imagesLoaded = 0;
     
     // Preload
-    for (let i = 1; i <= frameCount; i++) {
+    for (let i = 0; i < frameCount; i++) {
+      const idxStr = i.toString().padStart(3, '0');
       const img = new Image();
-      img.src = `./sequence/${i}.webp`;
+      img.src = `./sequence/frame_${idxStr}_delay-0.041s.webp`;
       images.push(img);
       img.onload = () => {
         imagesLoaded++;
